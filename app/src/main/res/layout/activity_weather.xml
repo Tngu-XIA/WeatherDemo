@@ -33,10 +33,25 @@
             android:paddingLeft="18dp">
 
             <LinearLayout
+                android:id="@+id/flash"
+                android:orientation="horizontal"
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/btn_Flash"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="刷新"
+                    android:textSize="20dp"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+            <LinearLayout
                 android:id="@+id/yQ"
+                android:layout_above="@id/flash"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
                 android:orientation="horizontal"
                 android:paddingBottom="20dp">
 

@@ -3,6 +3,8 @@ package com.example.tngu.weatherdemo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +22,7 @@ import okhttp3.Response;
 public class WeatherActivity extends AppCompatActivity {
     private ImageView img_Weather;
     private TextView tv_Yq, tv_Fl, tv_Fx, tv_Wd, tv_Time, tv_City;
+    private Button btn_Flash;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,14 @@ public class WeatherActivity extends AppCompatActivity {
         setContentView(R.layout.activity_weather);
         requestWeather();
         initView();
+        btn_Flash.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                requestWeather();
+                Toast.makeText(WeatherActivity.this,
+                        "刷新成功",Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void initView() {
@@ -37,6 +48,7 @@ public class WeatherActivity extends AppCompatActivity {
         tv_Wd = findViewById(R.id.tv_Wd);
         tv_Time = findViewById(R.id.tv_Time);
         tv_City = findViewById(R.id.tv_City);
+        btn_Flash = findViewById(R.id.btn_Flash);
     }
 
     //网络请求
